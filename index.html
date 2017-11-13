@@ -1,9 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>The Crystals Game</title>
+	<title>The Crystal Game</title>
 </head>
+<!--Links the Jquery-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!--Links CSS reset-->
+<link rel="stylesheet" type="text/css" href="assets/CSS/reset.css">
+
+<!--Links CSS style -->
+<link rel="stylesheet" type="text/css" href="assets/CSS/style.css">
+
+<!-- Links google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+<!-- Links javascript-->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+
 <body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="title">The Crystal Counter Game</div>
+				<p>
+				Instructions:</p>
+				<p>There are four crystals below. By clicking on the crystal you will add a specific amount of points to your total score.
+				You win the game by matching your total score to the random number, you lose the game if your total score goes above he random number.
+				The value of each crystal is hidden from you until you click on it. Each time the game starts, the game will change the value of each crystal.</p>
+				<p>To begin, click the question mark to get your random number!
+				</p>	
+			</div>
+		</div>
+		
+		<div class="row">	
+			<div class="col-md-4">
+				<button id="random-button" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button>
+			</div>	
+
+			<div class="col-md-8">
+				<div class="crystals">			
+			</div>
+		</div>
+		</div>
+	
+		<div class="row">
+			<div class="col-md-4">
+				<div class="text" id="random-number">
+					
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	
+
+
+
 
 </body>
 </html>

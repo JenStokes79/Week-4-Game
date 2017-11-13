@@ -30,30 +30,36 @@
 				<div class="title">The Crystal Counter Game</div>
 				<p>
 				Instructions:</p>
-				<p>There are four crystals below. By clicking on the crystal you will add a specific amount of points to your total score.
+				<p>You will begin with a random number. There are four crystals below. By clicking on the crystal you will add a specific amount of points to your total score.
 				You win the game by matching your total score to the random number, you lose the game if your total score goes above he random number.
-				The value of each crystal is hidden from you until you click on it. Each time the game starts, the game will change the value of each crystal.</p>
-				<p>To begin, click the question mark to get your random number!
+				The value of each crystal is hidden from you until you click on it. Each time the game starts, the game will change the value of each crystal.
 				</p>	
 			</div>
 		</div>
 		
 		<div class="row">	
 			<div class="col-md-4">
-				<button id="random-button" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button>
+				<h2>Random Number:</h2>
+				<div class="text" id="random-number">
+				</div>
 			</div>	
 
-			<div class="col-md-8">
-				<div class="crystals">			
+				<div class="col-md-8">
+					<div class="crystals"> test			
+				</div>
 			</div>
-		</div>
 		</div>
 	
 		<div class="row">
 			<div class="col-md-4">
-				<div class="text" id="random-number">
-					
-				</div>
+				<button id="random-button" class="btn btn-primary btn-lg"><h1><span class="reset"></span>RESET</h1></button>
+
+			</div>	
+					<div class="col-md-8">
+						<h3>Your Score:</h3>	
+						<div class="score" id="userScore">test
+						</div>	
+					</div>
 			</div>
 		</div>
 
@@ -61,8 +67,6 @@
 	</div>
 
 	
-
-
 
 
 </body>

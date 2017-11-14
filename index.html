@@ -67,45 +67,72 @@
 	<!--javascript-->
 <script type="text/javascript">
 
+//declaring global variables	
 
-	
+	var counter = 0;
+	var numberOptions = [5, 10, 1, 25];
+
+	//random number every time the page reloads	
+
 	$(document).ready(function() {  
       var randomNumber = Math.floor(Math.random() * 100) + 1;
       $('#random-number').html(randomNumber); 
 
-		
-	var counter = 0;
 
-	var numberOptions = [5, 10, 1, 25];
+	//for loop creates a dynamically set image & random number option 
 
-	for (var i = 0; i < numberOptions.length; i++) {
-		var imageCrystal = $("<img>");
-		numberOptions.sort(function() {
+		for (var i = 0; i < numberOptions.length; i++) {
+			var imageCrystal = $("<img>");
+			numberOptions.sort(function() {
 			return .5 - Math.random();
-		})
-		imageCrystal.addClass("crystals")
-		imageCrystal.attr("src", "assets/CSS/images/crystal1.jpeg");
-		imageCrystal.attr("data-crystalValue", 	numberOptions[i]);
-		$("#crystalImages1").append(imageCrystal);
+			})
+		imageCrystal.addClass("crystals") //attaches CSS
+		imageCrystal.attr("src", "assets/CSS/images/crystal1.jpeg"); //attaches crystal picture
+		imageCrystal.attr("data-crystalValue", 	numberOptions[i]); //adds data to the picture
+		$("#crystalImages1").append(imageCrystal); //appends to the DOM
 
-}
+}//ends the for loop
 
+
+	//runs when user clicks on the crystals, returns a value
 	$(".crystals").on("click", function(){
 		var crystalValue = ($(this).attr("data-crystalValue"));
 
-	crystalValue = parseInt(crystalValue);
-	counter += crystalValue;
-	$(".score").html(counter);
+		//takes the string value set to the crystal, and returns it as a integer score in the score section of HTML
+			crystalValue = parseInt(crystalValue);
+			counter += crystalValue;
+			$(".score").html(counter);
 
-	if (counter === randomNumber) {
-		alert("you win");
 
-	} else if (counter >= randomNumber) {
-		alert("you lose");
-	}
+		//if the counter equals the random number, user wins
+			if (counter === randomNumber) {
+			alert("you win");
+			document.location.reload();
+
+		//else of the counter goes over the random number, user loses
+
+			} else if (counter >= randomNumber) {
+			alert("you lose");
+			document.location.reload();
+
+
+		} 
 
 })
+	//restarts game by reloading page
+		$("#reset-button").on("click", function(){
+		document.location.reload();
+	})
+	
+
 })
+
+	
+
+	
+
+
+
 
 
 	

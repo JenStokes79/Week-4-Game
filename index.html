@@ -3,8 +3,7 @@
 <head>
 	<title>The Crystal Game</title>
 </head>
-<!--Links the Jquery-->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -18,9 +17,10 @@
 <!-- Links google fonts -->
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
-<!-- Links javascript-->
-<script type="text/javascript" src="assets/javascript/game.js"></script>
 
+
+<!--Links the Jquery-->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <body>
 
@@ -40,34 +40,77 @@
 		<div class="row">	
 			<div class="col-md-4">
 				<h2>Random Number:</h2>
-				<div class="text" id="random-number">
-				</div>
+				<div id="random-number"></div>
 			</div>	
 
 				<div class="col-md-8">
-					<div class="crystals"> test			
-				</div>
+					<div id="crystalImages1"></div>
+					
+					
 			</div>
 		</div>
 	
 		<div class="row">
 			<div class="col-md-4">
-				<button id="random-button" class="btn btn-primary btn-lg"><h1><span class="reset"></span>RESET</h1></button>
+				<button id="reset-button" class="btn btn-primary btn-lg"><h1><span class="reset"></span>RESET</h1></button>
 
 			</div>	
 					<div class="col-md-8">
 						<h3>Your Score:</h3>	
-						<div class="score" id="userScore">test
+						<div class="score">test
 						</div>	
 					</div>
 			</div>
 		</div>
-
-
 	</div>
 
-	
+	<!--javascript-->
+<script type="text/javascript">
 
+	$(document).ready(function() {
+        
+      var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+      $('#random-number').html(randomNumber);
+
+     
+
+	var counter = 0;
+
+	var numberOptions = [5, 10, 1, 25];
+
+	for (var i = 0; i < numberOptions.length; i++) {
+		var imageCrystal = $("<img>");
+		imageCrystal.addClass("crystals")
+		imageCrystal.attr("src", "assets/CSS/images/crystal1.jpeg");
+		imageCrystal.attr("data-crystalValue", 	numberOptions[i]);
+		$("#crystalImages1").append(imageCrystal);
+	
+	
+}
+
+	$(".crystals").on("click", function(){
+		var crystalValue = ($(this).attr("data-crystalValue"));
+
+	crystalValue = parseInt(crystalValue);
+	counter += crystalValue;
+	$(".score").html(counter);
+
+	if (counter === randomNumber) {
+		alert("you win");
+
+	} else if (counter >= randomNumber) {
+		alert("you lose");
+	}
+
+})
+	
+})
+	 
+
+
+
+</script>
 
 </body>
 </html>

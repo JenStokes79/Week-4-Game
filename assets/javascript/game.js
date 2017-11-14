@@ -1,11 +1,12 @@
-//generates random number when button is pushed
+//could not get it working on this page, 
+//so I put all the JS in the HTML
 
 
 
-$(document).ready(function(){
-	var randomNumber = Math.floor(Math.random() * 100) +1;
-		$("#random-number").html(randomNumber);
-	})
+
+
+
+
 
 
 

@@ -67,26 +67,27 @@
 	<!--javascript-->
 <script type="text/javascript">
 
-	$(document).ready(function() {
-        
+
+	
+	$(document).ready(function() {  
       var randomNumber = Math.floor(Math.random() * 100) + 1;
+      $('#random-number').html(randomNumber); 
 
-      $('#random-number').html(randomNumber);
-
-     
-
+		
 	var counter = 0;
 
 	var numberOptions = [5, 10, 1, 25];
 
 	for (var i = 0; i < numberOptions.length; i++) {
 		var imageCrystal = $("<img>");
+		numberOptions.sort(function() {
+			return .5 - Math.random();
+		})
 		imageCrystal.addClass("crystals")
 		imageCrystal.attr("src", "assets/CSS/images/crystal1.jpeg");
 		imageCrystal.attr("data-crystalValue", 	numberOptions[i]);
 		$("#crystalImages1").append(imageCrystal);
-	
-	
+
 }
 
 	$(".crystals").on("click", function(){
@@ -104,8 +105,11 @@
 	}
 
 })
-	
 })
+
+
+	
+
 	 
 
 

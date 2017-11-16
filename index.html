@@ -44,7 +44,11 @@
 			</div>	
 
 				<div class="col-md-8">
-					<div id="crystalImages1"></div>
+					
+					<img src="assets/CSS/images/crystal1.jpeg" class="crystals1">
+					<img src="assets/CSS/images/crystal2.jpeg" class="crystals2">
+					<img src="assets/CSS/images/crystal3.jpeg" class="crystals3">
+					<img src="assets/CSS/images/crystal4.jpeg" class="crystals4"> 
 					
 					
 			</div>
@@ -57,7 +61,7 @@
 			</div>	
 					<div class="col-md-8">
 						<h3>Your Score:</h3>	
-						<div class="score">test
+						<div class="score">
 						</div>	
 					</div>
 			</div>
@@ -66,81 +70,106 @@
 
 	<!--javascript-->
 <script type="text/javascript">
-
 //declaring global variables	
-
 	var counter = 0;
-	var numberOptions = [5, 10, 1, 25];
+	var numberOptions = [1, 5, 10,]
+	
 
-	//random number every time the page reloads	
-
+	//creats a random number between 30 and 99 every time the page loads
 	$(document).ready(function() {  
-      var randomNumber = Math.floor(Math.random() * 100) + 1;
-      $('#random-number').html(randomNumber); 
+      var randomNumber = Math.floor(Math.random() * 69) + 30;
+      	$('#random-number').html(randomNumber); 
+      
 
-
-	//for loop creates a dynamically set image & random number option 
-
-		for (var i = 0; i < numberOptions.length; i++) {
-			var imageCrystal = $("<img>");
-			numberOptions.sort(function() {
-			return .5 - Math.random();
-			})
-		imageCrystal.addClass("crystals") //attaches CSS
-		imageCrystal.attr("src", "assets/CSS/images/crystal1.jpeg"); //attaches crystal picture
-		imageCrystal.attr("data-crystalValue", 	numberOptions[i]); //adds data to the picture
-		$("#crystalImages1").append(imageCrystal); //appends to the DOM
-
-}//ends the for loop
-
-
-	//runs when user clicks on the crystals, returns a value
-	$(".crystals").on("click", function(){
-		var crystalValue = ($(this).attr("data-crystalValue"));
-
-		//takes the string value set to the crystal, and returns it as a integer score in the score section of HTML
-			crystalValue = parseInt(crystalValue);
-			counter += crystalValue;
-			$(".score").html(counter);
-
-
+	//creates a click event on the crystals, and puts a random number in the score section
+      
+		$(".crystals1").on("click", function(){
+      var randomCrystal1 = Math.floor(Math.random() * 25) + 1;
+      $(".score").html(randomCrystal1);
+      var imageCrystal = $(".crystals");
+      imageCrystal.attr("data-crystalValue1")
+        counter += randomCrystal1;
+      $(".score").html(counter);
 		//if the counter equals the random number, user wins
 			if (counter === randomNumber) {
-			alert("you win");
-			document.location.reload();
-
-		//else of the counter goes over the random number, user loses
-
-			} else if (counter >= randomNumber) {
-			alert("you lose");
-			document.location.reload();
-
-
-		} 
-
-})
-	//restarts game by reloading page
-		$("#reset-button").on("click", function(){
+		alert("you win");
 		document.location.reload();
-	})
-	
+		//else of the counter goes over the random number, user loses
+		} else if (counter >= randomNumber) {
+		alert("you lose");
+		document.location.reload();
+
+  }
+})
+  
+  $(".crystals2").on("click", function(){
+      var randomCrystal1 = Math.floor(Math.random() * 25) + 1;
+      $(".score").html(randomCrystal1);
+      var imageCrystal = $(".crystals");
+      imageCrystal.attr("data-crystalValue2")
+        counter += randomCrystal1;
+      $(".score").html(counter);
+		//if the counter equals the random number, user wins
+			if (counter === randomNumber) {
+		alert("you win");
+		document.location.reload();
+		//else of the counter goes over the random number, user loses
+		} else if (counter >= randomNumber) {
+		alert("you lose");
+		document.location.reload();
+
+  }
+})
+  $(".crystals3").on("click", function(){
+      var randomCrystal1 = Math.floor(Math.random() * 25) + 1;
+      $(".score").html(randomCrystal1);
+      var imageCrystal = $(".crystals");
+      imageCrystal.attr("data-crystalValue3")
+        counter += randomCrystal1;
+      $(".score").html(counter);
+		//if the counter equals the random number, user wins
+			if (counter === randomNumber) {
+		alert("you win");
+		document.location.reload();
+		//else of the counter goes over the random number, user loses
+		} else if (counter >= randomNumber) {
+		alert("you lose");
+		document.location.reload();
+
+  }
+})
+
+  $(".crystals4").on("click", function(){
+      var randomCrystal1 = Math.floor(Math.random() * 25) + 1;
+      $(".score").html(randomCrystal1);
+      var imageCrystal = $(".crystals");
+      imageCrystal.attr("data-crystalValue4")
+      counter += randomCrystal1;
+      $(".score").html(counter);
+		//if the counter equals the random number, user wins
+			if (counter === randomNumber) {
+		alert("you win");
+		document.location.reload();
+		//else of the counter goes over the random number, user loses
+		} else if (counter >= randomNumber) {
+		alert("you lose");
+		document.location.reload();
+  }
+
+
+
+})
 
 })
 
 	
 
+
+
+		
 	
-
-
-
-
-
 	
-
 	 
-
-
-
 </script>
 
 </body>

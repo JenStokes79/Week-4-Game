@@ -19,11 +19,35 @@ p {
 	padding: 25px;
 }
 
-.crystals {
+.crystals1 {
 
 	padding: 10px;
 	width: 100px;
-	height: 100;
+	height: 100px;
+	float: left;
+	align-content: center;
+}
+.crystals2 {
+
+	padding: 10px;
+	width: 100px;
+	height: 100px;
+	float: left;
+	align-content: center;
+}
+.crystals3 {
+
+	padding: 10px;
+	width: 100px;
+	height: 100px;
+	float: left;
+	align-content: center;
+}
+.crystals4 {
+
+	padding: 10px;
+	width: 100px;
+	height: 100px;
 	float: left;
 	align-content: center;
 }
@@ -48,6 +72,10 @@ p {
 	padding: 25px;
 	
 }
+
+
+
+
 
 
 h2 {

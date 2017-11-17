@@ -17,8 +17,6 @@
 <!-- Links google fonts -->
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
-
-
 <!--Links the Jquery-->
  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -48,17 +46,17 @@
 			</div>	
 			<br>
 			<br>
-
-			<div class="col-md-8" id="crystalImages1">
-			</div>
+			<div class="col-md-8" id="crystalImages1"></div>
 		</div>
 	
 		<div class="row">
-			<div class="col-md-4"></div>	
+			<div class="col-md-4">
+				<div id="Wins">Wins: </div>
+				<div id="loses">Loses: </div>
+			</div>
 					<div class="col-md-8">
 						<h3>Your Score:</h3>	
-						<div class="score">
-						</div>	
+						<div class="score"></div>	
 					</div>
 			</div>
 		</div>
@@ -67,52 +65,78 @@
 	<!--javascript-->
 <script type="text/javascript">
 
-	//declaring global variables	
-	$(document).ready(function() {
-         
-       var randomNumber = Math.floor(Math.random() * 69) + 30;
- 
-       $('#random-number').html(randomNumber);
- 
- 	var counter = 0;
- 
+	//declaring global variables
+	var counter = 0;
  	var numberOptions = [5, 10, 1, 25];
-  
- 	
- 		for (var i = 0; i < numberOptions.length; i++) {
+ 	var wins = 0;
+ 	var loses = 0;
+	var randomNumber = 0;
+ 
+	//starts game
+	$(document).ready(function() {  
+
+		//creates random number between 30 and 99
+     	randomNumber = Math.floor(Math.random() * 69) + 30
+     	$('#random-number').html(randomNumber);
+
+ 		//for loop creates an image div for 4 number options
+ 			for (var i = 0; i < numberOptions.length; i++) {
  			var imageCrystal = $("<img>");
+ 			//numberOptions.sort() changes the value of the crystal each time the game is run
  			numberOptions.sort(function() {
   			return .5 - Math.random();
-  		})
- 		imageCrystal.addClass("crystals")
- 		imageCrystal.attr("src", "assets/CSS/images/crystal"+ (i+1) + ".jpeg").css("width", 150);
- 		imageCrystal.attr("data-crystalValue", 	numberOptions[i]);
- 		$("#crystalImages1").append(imageCrystal);
-  	
- 	console.log(numberOptions);
- };
+  			})
+
+ 			//I think this works with the click event below $(".crystals")
+ 			imageCrystal.addClass("crystals");
+ 			//This adds all the crystal images. The CSS didnt work externally on this
+ 			imageCrystal.attr("src", "assets/CSS/images/crystal"+ (i+1) + ".jpeg").css("width", 150);
+ 			//The data attribute makes it so each crystal has a value, in a random array from the above for loop and .sort function
+ 			imageCrystal.attr("data-crystalValue", 	numberOptions[i]);
+ 			$("#crystalImages1").append(imageCrystal);
+ 			};
  
+ 	//starts click event on crystals and returns a value. This refer's to the crystal being clicked
  	$(".crystals").on("click", function(){
  		var crystalValue = ($(this).attr("data-crystalValue"));
+ 			
+ 			//parseInt takes the string and returns an integer 
+ 			//counter takes the crystal value and adds it together
+ 			//$(".score").html(counter) returns the added score into the html so the user can see it
+ 			crystalValue = parseInt(crystalValue);
+ 			counter += crystalValue;
+ 			$(".score").html(counter);
  
- 	crystalValue = parseInt(crystalValue);
- 	counter += crystalValue;
- 	$(".score").html(counter);
+ 				//if the counter equals the random number, the user wins. Score is kept track of using win++, then adds it to the html for the user to see
+ 				//Start() will restart the game 
+ 				if (counter === randomNumber) {
+ 				alert("you win");
+ 				wins++
+ 				$("#Wins").html("Wins: " + wins)
+ 				Start();
+ 				
+ 				//if the counter is greater than the random number, the user loses. Score is kept track of using loses++, then adds it to the html for the user to see
+ 				//Start() will restart the game 
+ 				} else if (counter >= randomNumber) {
+ 				  alert("you lose");
+ 				  loses++
+ 				  $("#loses").html("Loses: " + loses) ;
+ 				  Start();
+ 				}
+ 		})
  
- 	if (counter === randomNumber) {
- 		alert("you win");
- 
- 	} else if (counter >= randomNumber) {
- 		alert("you lose");
- 	}
- 
- })
+
+ 		//this function will restart the game, it clears the current score, generates a new random number, and reasigns the crystals values randomly
+ 		function Start(){
+ 		randomNumber = Math.floor(Math.random() * 69) + 30;
+ 		counter = null;
+ 		numberOptions = [5, 10, 1, 25];
+ 		$(".score").html(counter);
+ 		$('#random-number').html(randomNumber);
+		}
  	
  
-})
- 	 
- 
- 
+}) //end 
   
  </script>
 

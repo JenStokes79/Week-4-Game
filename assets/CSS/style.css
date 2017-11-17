@@ -10,38 +10,43 @@
 p {
 	font-size: 18px;
 	font-family: 'Josefin Sans', sans-serif;
-
-
 }
-
-#mainImg {
-	width: 100%;
-	height: auto;
-	padding: 25px;
-}
-
 
 .text {
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 30px;
 	padding: 25px;
 }
 #random-number {
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 30px;
 	padding: 25px;
 }
 
 .score {
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 30px;
 	padding: 25px;
 	
 }
 
 h2 {
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 20px;
 	padding: 15px;
 }
 h3 {
-	
+	font-family: 'Josefin Sans', sans-serif;
 	font-size: 20px;
 	padding: 15px;
+}
+#Wins {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 20px;
+	padding: 25px;
+}
+#loses {
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 20px;
+	padding: 25px;
 }

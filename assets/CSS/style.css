@@ -1,3 +1,10 @@
+body {
+	background-image: url(background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: absolute;
+}
+
 
 .title {
 	font-size: 40px;
@@ -49,4 +56,11 @@ h3 {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 20px;
 	padding: 25px;
+}
+.crystals {
+	padding: 12px;
+}
+.crystals:hover {
+	cursor: pointer;
+
 }

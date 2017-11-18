@@ -73,10 +73,11 @@
  	
 
 
- 		$(document).ready(function() {  
+ 			$(document).ready(function() { 
+ 			Start();
  			//creates random number between 19 and 120
-     	randomNumber = Math.floor(Math.random() * 101) + 19;
-     	$('#random-number').html(randomNumber);
+     		randomNumber = Math.floor(Math.random() * 101) + 19;
+     		$('#random-number').html(randomNumber);
      		
   			//for loop creates an image div for 4 number options
   			for (var i = 0; i < 4; i++) {
@@ -88,13 +89,20 @@
  			//The data attribute makes it so each crystal has a value
  			imageCrystal.attr("data-crystalValue", Math.floor(Math.random() * 12) +1);
  			$("#crystalImages1").append(imageCrystal);
- 		}	
+ 			}	
 	
- 		
- 
- 	//starts click event on crystals and returns a value. This refer's to the crystal being clicked
- 	$(document).on("click", ".crystals", function(){
- 		var crystalValue = ($(this).attr("data-crystalValue"));
+
+ 		//this function will restart the game, it clears the current score, generates a new random number, and reassigns the crystals values randomly	
+	 	function Start(){
+ 		randomNumber = Math.floor(Math.random() * 101) + 19;
+ 		counter = null;
+ 		$(".score").html(counter);
+	
+ 	
+ 			//starts click event on crystals and returns a value. This refer's to the crystal being clicked
+ 			$(document).on("click", ".crystals", function(){
+ 			var crystalValue = ($(this).attr("data-crystalValue"));
+
  			
  			//parseInt takes the string and returns an integer 
  			//counter takes the crystal value and adds it together
@@ -103,38 +111,25 @@
  			counter += crystalValue;
  			$(".score").html(counter);
  
- 				//if the counter equals the random number, the user wins. Score is kept track of using win++, then adds it to the html for the user to see
- 				//Start() will restart the game 
- 				if (counter === randomNumber) {
- 				alert("you win");
- 				wins++
- 				$("#Wins").html("Wins: " + wins)
- 				Start();
+ 			//if the counter equals the random number, the user wins. Score is kept track of using win++, then adds it to the html for the user to see
+ 			//Start() will restart the game 
+ 			if (counter === randomNumber) {
+ 			alert("you win");
+ 			wins++
+ 			$("#Wins").html("Wins: " + wins)
+ 			Start();
  				
- 				//if the counter is greater than the random number, the user loses. Score is kept track of using loses++, then adds it to the html for the user to see
- 				//Start() will restart the game 
- 				} else if (counter >= randomNumber) {
- 				  alert("you lose");
- 				  loses++
- 				  $("#loses").html("Loses: " + loses) ;
- 				  Start();
- 				}
- 		});
- 	
-
- 		//this function will restart the game, it clears the current score, generates a new random number, and reassigns the crystals values randomly
- 		function Start(){
- 		randomNumber = Math.floor(Math.random() * 101) + 19;
- 		counter = null;
- 		$(".score").html(counter);
- 		$('#random-number').html(randomNumber);
- 		$(".crystals").empty();
-
-		}
-	
-		//starts game
-	
-		
+ 			//if the counter is greater than the random number, the user loses. Score is kept track of using loses++, then adds it to the html for the user to see
+ 			//Start() will restart the game 
+ 			} else if (counter >= randomNumber) {
+ 			 alert("you lose");
+ 			 loses++
+ 			 $("#loses").html("Loses: " + loses) ;
+ 			 Start();
+ 			}
+ 		})	
+ 	};
+ 		
   })//end 
   
  </script>
